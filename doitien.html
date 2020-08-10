@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đổi tiền</title>
+    <style>
+        table {
+            width: 500px;
+        }
+        td {
+            padding-top: 20px;
+        }
+        option {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr class="content">
+            <td>
+                <b style="margin-left: 20px">Amount</b><br>
+                <input type="text" name="content" id="content">
+            </td>
+            <td>
+                <b>From Currency</b><br>
+                <select name="from" id="from">
+                    <option value="1">Việt Nam</option>
+                    <option value="2">USA</option>
+                </select>
+            </td>
+            <td>
+                <b>To Currency</b><br>
+                <select name="to" id="to">
+                    <option value="1">Việt Nam</option>
+                    <option value="2">USA</option>
+                </select>
+            </td>
+            <td><br>
+                <button type="button" onclick="myFunction()">Convert</button>
+            </td>
+        </tr>
+        <tr>
+            <td row="4"><p id="result"></p></td>
+        </tr>
+    </table>
+    <script>
+        function myFunction(){
+            var monneyfrom = document.getElementById('from').value;
+            var monneyto = document.getElementById('to').value;
+            var content = parseInt(document.getElementById('content').value);
+            if (monneyfrom === monneyto){
+                document.getElementById('result').innerHTML = 'Vui lòng nhập lại';
+            }
+            if (monneyfrom === '1' &&  monneyto === '2'){
+                var result = content * 0.00004347826;
+                document.getElementById('result').innerHTML = 'Result:' + '&nbsp' + result + 'USD' ;
+            }
+            if (monneyfrom === '2' &&  monneyto === '1'){
+                var result = content * 23000;
+                document.getElementById('result').innerHTML = 'Result:' + '&nbsp' + result + ' VNĐ' ;
+            }
+        }
+    </script>
+</body>
+</html>
